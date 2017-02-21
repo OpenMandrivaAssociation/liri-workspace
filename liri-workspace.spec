@@ -1,4 +1,5 @@
 %define major 0
+%define Werror_cflags %nil
 %define snapshot 20170221
 
 Summary:        A collection of core classes used throughout Liri
@@ -17,6 +18,7 @@ License:        LGPLv3
 Url:            https://github.com/lirios
 
 BuildRequires:  cmake
+BuildRequires:  extra-cmake-modules
 BuildRequires:  qt5-devel
 BuildRequires:  cmake(Qt5QuickControls2)
 BuildRequires:	cmake(Fluid)
