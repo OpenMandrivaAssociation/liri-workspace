@@ -45,9 +45,9 @@ A collection of core classes used throughout Liri
 %find_lang -f liri-screenshot liri-screencast --with-qt
 
 %files -f liri-screencast
-%{_bindir}liri-powermanager
-%{_bindir}liri-screencast
-%{_bindir}liri-screenshot
+%{_bindir}/liri-powermanager
+%{_bindir}/liri-screencast
+%{_bindir}/liri-screenshot
 %{_libdir}/plugins/platformthemes/liriplatformtheme.so
 %{_datadir}/applications/io.liri.Screenshot.desktop
 %{_datadir}/desktop-directories/*.directory
