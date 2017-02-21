@@ -25,6 +25,9 @@ BuildRequires:	cmake(Fluid)
 BuildRequires:	cmake(Vibe)
 BuildRequires:	cmake(LiriWayland)
 BuildRequires:	cmake(Qt5GStreamer)
+BuildRequires:	pkgconfig(libsystemd)
+BuildRequires:	pkgconfig(wayland-egl)
+BuildRequires:	pkgconfig(glib-2.0)
 
 %description
 A collection of core classes used throughout Liri
@@ -38,7 +41,16 @@ A collection of core classes used throughout Liri
 %make
 
 %install
-%makeinstall_std INSTALL_ROOT="%{buildroot}"
+%makeinstall_std -C build
+%find_lang -f liri-screenshot liri-screencast --with-qt
 
-%files
-%{_bindir}/%{name}
+%files -f liri-screencast
+%{_bindir}liri-powermanager
+%{_bindir}liri-screencast
+%{_bindir}liri-screenshot
+%{_libdir}/plugins/platformthemes/liriplatformtheme.so
+%{_datadir}/applications/io.liri.Screenshot.desktop
+%{_datadir}/desktop-directories/*.directory
+%{_datadir}/glib-2.0/schemas/io.liri*.xml
+%{_kde5_autostart}/liri-powermanager.desktop
+%{_sysconfdir}/xdg/menus/liri-applications.menu
