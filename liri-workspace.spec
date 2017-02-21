@@ -17,8 +17,7 @@ Source0:        https://github.com/lirios/workspace/releases/download/v%{version
 License:        LGPLv3
 Url:            https://github.com/lirios
 
-BuildRequires:  cmake
-BuildRequires:  extra-cmake-modules
+BuildRequires:  cmake(ECM)
 BuildRequires:  qt5-devel
 BuildRequires:  cmake(Qt5QuickControls2)
 BuildRequires:	cmake(Fluid)
@@ -32,13 +31,13 @@ A collection of core classes used throughout Liri
 %prep
 %setup -qn %{tarname}
 %apply_patches
+%cmake_qt5
 
 %build
-%cmake_qt5
-%make
+%ninja -C build
 
 %install
-%makeinstall_std INSTALL_ROOT="%{buildroot}"
+%ninja_install -C build
 
 %files
 %{_bindir}/%{name}
