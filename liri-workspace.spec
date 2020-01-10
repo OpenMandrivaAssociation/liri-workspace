@@ -30,7 +30,7 @@ A collection of core classes used throughout Liri
 
 %prep
 %setup -qn %{tarname}
-%apply_patches
+%autopatch -p1
 %cmake_qt5
 
 %build
